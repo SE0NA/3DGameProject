@@ -65,7 +65,9 @@
     <Compile Include="Assets\Etc\_Barking_Dog\Common Scripts\MouseLook.cs" />
     <Compile Include="Assets\Etc\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\Scripts\Main\LightBlinking.cs" />
-    <Compile Include="Assets\Scripts\Main\MainMenuSelect.cs" />
+    <Compile Include="Assets\Scripts\Main\MainBtnClick.cs" />
+    <Compile Include="Assets\Scripts\Main\MainBtnEffect.cs" />
+    <Compile Include="Assets\Scripts\StageInfo.cs" />
     <None Include="Assets\Etc\_Barking_Dog\Readme_Please.txt" />
     <None Include="Assets\Etc\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Etc\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -85,11 +87,17 @@
     <None Include="Assets\Etc\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Etc\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Etc\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
@@ -99,12 +107,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

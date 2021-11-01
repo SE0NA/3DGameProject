@@ -22,6 +22,6 @@ public class RoomInfo : MonoBehaviour
 
     private void Start()
     {
-        lightObject.SetActive(false);
+        //lightObject.SetActive(false);
     }
 }

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 0
   doorOpenClip: {fileID: 8300000, guid: f6d04b5ecde9040a79b7717503989ae0, type: 3}
-  startPosition: {fileID: 8909740599341401822}
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2074276369684494217
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +174,26 @@ PrefabInstance:
       propertyPath: roomNum
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 57d49f5652328084a984de4097083d63,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 57d49f5652328084a984de4097083d63,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 57d49f5652328084a984de4097083d63,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 57d49f5652328084a984de4097083d63,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d49f5652328084a984de4097083d63, type: 3}
 --- !u!4 &6000780553622390983 stripped
@@ -253,6 +273,36 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNum
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
@@ -414,6 +464,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37ed6a7e87c4944caa328d0ff70ac58, type: 3}
 --- !u!4 &6482420553592024746 stripped
@@ -489,15 +569,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6027935510227711280, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
       propertyPath: roomNum
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+    - target: {fileID: 3681194643307394113, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e34c98ec52e79f40b3b7fa4c02e0720, type: 3}
@@ -739,6 +849,26 @@ PrefabInstance:
       propertyPath: roomNum
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62e892e88bd6dba4695b5d149deb11ba, type: 3}
 --- !u!4 &8301571668243506912 stripped
@@ -814,15 +944,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6027935510227711280, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
       propertyPath: roomNum
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+    - target: {fileID: 3681194643307394113, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e34c98ec52e79f40b3b7fa4c02e0720, type: 3}
@@ -903,6 +1063,36 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNum
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 9196a1cd19a24124a8da5440a8083bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9196a1cd19a24124a8da5440a8083bae, type: 3}
@@ -1164,6 +1354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room4
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499307696085307, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6096499307696085304, guid: a37ed6a7e87c4944caa328d0ff70ac58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1223,6 +1418,36 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNum
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37ed6a7e87c4944caa328d0ff70ac58, type: 3}
@@ -1304,6 +1529,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
 --- !u!4 &1720102127598592658 stripped
@@ -1384,6 +1639,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
 --- !u!4 &2122917829794323499 stripped
@@ -1463,6 +1748,36 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNum
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
@@ -1548,6 +1863,36 @@ PrefabInstance:
         type: 3}
       propertyPath: isOpen
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
@@ -1789,6 +2134,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
 --- !u!4 &3736937343595167074 stripped
@@ -1868,6 +2243,26 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNum
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 62e892e88bd6dba4695b5d149deb11ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62e892e88bd6dba4695b5d149deb11ba, type: 3}
@@ -1949,6 +2344,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 521aed8c477bb2b4b924c5eb5eb0e56c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aed8c477bb2b4b924c5eb5eb0e56c, type: 3}
 --- !u!4 &4192244869810596455 stripped
@@ -2029,6 +2454,36 @@ PrefabInstance:
       propertyPath: roomNum
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307394113, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: a37ed6a7e87c4944caa328d0ff70ac58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37ed6a7e87c4944caa328d0ff70ac58, type: 3}
 --- !u!4 &2567909065191317140 stripped
@@ -2104,15 +2559,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6027935510227711280, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
       propertyPath: roomNum
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 6096499307905495464, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+    - target: {fileID: 3681194643307394113, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488918162, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663601279, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681194643307575819, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096499306488916178, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775094445663783989, guid: 8e34c98ec52e79f40b3b7fa4c02e0720,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e34c98ec52e79f40b3b7fa4c02e0720, type: 3}

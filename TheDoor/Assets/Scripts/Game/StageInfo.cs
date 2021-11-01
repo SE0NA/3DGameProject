@@ -12,7 +12,6 @@ public class StageInfo : MonoBehaviour
     public StageLevel currentStage;
 
     public AudioClip doorOpenClip;
-
-    public Vector3 startPosition;
+    
     
 }

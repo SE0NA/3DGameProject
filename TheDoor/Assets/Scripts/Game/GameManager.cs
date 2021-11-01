@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
 
     StageInfo _stageInfo;
+    Vector3 startPosition;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
             case StageLevel.stage5x5:
                 gameStage = Instantiate(stagePrefabs[0]);
                 gameStage.transform.position = new Vector3(0, 0, 0);
+                startPosition = new Vector3(20.0f, 0.5f, -20.0f);
                 break;
         }
 
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
         if(gameStage != null)   // 스테이지 생성시 실행
         {
             player = Instantiate(playerPrefab);
-            player.transform.localPosition = new Vector3(20.0f, 0.5f, -20.0f);
+            player.transform.localPosition = startPosition;
         }
     }
 

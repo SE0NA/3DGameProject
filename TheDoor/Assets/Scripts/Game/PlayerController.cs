@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigid;
+    public Camera myCamera;
+    public float cameraRotationLimit;
+    private float currentCameraRotationX;
+    public float sensitivity; // 감도
+
 
     public int jumpPower;
     private bool isJumping;
@@ -22,6 +27,9 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+
+        CameraRotation();
+        CharacterRotation();
     }
 
     void Move()     // 이동
@@ -48,10 +56,25 @@ public class PlayerController : MonoBehaviour
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             isJumping = false;
+    }
+
+    private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)
+    {
+        float x = Input.GetAxisRaw("Mouse Y");  // x축으로 회전
+        float cameraRotationX = x * sensitivity;
+        currentCameraRotationX -= cameraRotationX;
+        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+
+        myCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    }
+    private void CharacterRotation()    // 캐릭터 회전(마우스-좌우)
+    {
+        float y = Input.GetAxisRaw("Mouse X");  // y축으로 회전
+        Vector3 characterRotationY = new Vector3(0f, y, 0f) * sensitivity;
+        gameObject.transform.rotation *= Quaternion.Euler(characterRotationY);
     }
 }

@@ -19,15 +19,11 @@ public class MainBtnClick : MonoBehaviour
     public GameObject mainMenuPanel1 = null;
     public GameObject mainMenuPanel2 = null;
     public GameObject optionPanel = null;
-
-    StageInfo _stageInfo = null;
-
+    
     void Start()
     {
         mainMenuPanel2.SetActive(false);
         optionPanel.SetActive(false);
-
-        _stageInfo = FindObjectOfType<StageInfo>();
     }
     
     public void OnClickFunc(int input)
@@ -55,21 +51,18 @@ public class MainBtnClick : MonoBehaviour
             case MainMenuBtn.play5:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
-                _stageInfo.currentStageLevel = StageLevel.stage5x5;
                 SceneManager.LoadScene("Game");
                 break;
 
             case MainMenuBtn.play7:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
-                _stageInfo.currentStageLevel = StageLevel.stage7x7;
                 SceneManager.LoadScene("Game");
                 break;
 
             case MainMenuBtn.play10:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
-                _stageInfo.currentStageLevel = StageLevel.stage10x10;
                 SceneManager.LoadScene("Game");
                 break;
 

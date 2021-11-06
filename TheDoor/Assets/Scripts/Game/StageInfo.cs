@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum StageLevel
 {
-    stage5x5, stage7x7, stage10x10
+    stage5x5, stage7x7, stage9x9
 }
 
 public class StageInfo : MonoBehaviour
@@ -12,6 +12,11 @@ public class StageInfo : MonoBehaviour
     public StageLevel currentStage;
 
     public AudioClip doorOpenClip;
-    
-    
+
+    public RoomInfo[] roomList;
+    // 배열 인덱스 + 1 = 실제 방번호
+    public int bombCnt; // 폭탄 수
+
+    public int startRoomNum;    // 게임 시작시 플레이어의 위치
+    public int stageLine;       // 스테이지의 크기
 }

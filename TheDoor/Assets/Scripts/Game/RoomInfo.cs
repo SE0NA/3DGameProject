@@ -11,17 +11,22 @@ public enum RoomType
 
 public class RoomInfo : MonoBehaviour
 {
-    public int roomNum;
-    public bool isOpen = false;
-    public bool haveBomb = false;
-
     public RoomType roomtype;
-    public int aroundBomb;
+
+    public int aroundBomb = 0;
+    public int roomNum;
+    public bool isOpened = false;
+    public bool hasBomb = false;
 
     public GameObject lightObject;
 
     private void Start()
     {
-        //lightObject.SetActive(false);
+        lightObject.SetActive(false);
+    }
+
+    public void LightOn()
+    {
+        lightObject.SetActive(true);
     }
 }

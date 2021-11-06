@@ -10,12 +10,20 @@ public class DoorMove : MonoBehaviour
 
     public int roomNum1;
     public int roomNum2;
-    
+
+    AudioSource doorAudioSource;
+    public AudioClip doorOpenClip;
+
+    private void Start()
+    {
+        doorAudioSource = GetComponent<AudioSource>();
+    }
+
     public void DoorOpen()
     {
+        doorAudioSource.PlayOneShot(doorOpenClip);
         if (isXaxis)
         {
-            // 문열기
             ;
         }
     }

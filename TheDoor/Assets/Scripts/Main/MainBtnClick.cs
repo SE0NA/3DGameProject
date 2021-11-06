@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public enum MainMenuBtn
 {
     start=1, option=2, quit=3,
-    play5=5, play7=7, play10=10, back=11
+    play5=5, play7=7, play9=9, back
 }
 
 public class MainBtnClick : MonoBehaviour
@@ -29,6 +29,7 @@ public class MainBtnClick : MonoBehaviour
     public void OnClickFunc(int input)
     {
         MainMenuBtn current = (MainMenuBtn)input;
+        SendStageInfo _sendStageInfo = FindObjectOfType<SendStageInfo>();
         switch (current)
         {
             // 메인 메뉴1
@@ -51,18 +52,21 @@ public class MainBtnClick : MonoBehaviour
             case MainMenuBtn.play5:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
+                _sendStageInfo.selectStage = StageLevel.stage5x5;
                 SceneManager.LoadScene("Game");
                 break;
 
             case MainMenuBtn.play7:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
+                _sendStageInfo.selectStage = StageLevel.stage7x7;
                 SceneManager.LoadScene("Game");
                 break;
 
-            case MainMenuBtn.play10:
+            case MainMenuBtn.play9:
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
+                _sendStageInfo.selectStage = StageLevel.stage9x9;
                 SceneManager.LoadScene("Game");
                 break;
 

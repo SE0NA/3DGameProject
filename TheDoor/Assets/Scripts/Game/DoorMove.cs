@@ -20,6 +20,9 @@ public class DoorMove : MonoBehaviour
 
     public void DoorOpen()
     {
+        leftDoor.GetComponentInChildren<BoxCollider>().enabled = false;
+        rightDoor.GetComponentInChildren<BoxCollider>().enabled = false;
+
         leftDoor.GetComponent<AudioSource>().Play();
         rightDoor.GetComponent<AudioSource>().Play();
         dooropenAnim.Play();

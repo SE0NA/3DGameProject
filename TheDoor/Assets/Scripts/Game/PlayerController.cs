@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
+        Cursor.visible = false;
+
         rigid = GetComponent<Rigidbody>();
         _stageInfo = FindObjectOfType<StageInfo>();
         _canvasManager = FindObjectOfType<CanvasManager>();
@@ -118,7 +121,6 @@ public class PlayerController : MonoBehaviour
                 behindRoomNum = touchDoor.roomNum1;
 
             _stageInfo.roomList[behindRoomNum - 1].Open();
-            _stageInfo.currentBombCnt--;
             _canvasManager.SetBombCnt(_stageInfo.currentBombCnt);
 
            // 폭탄이 있는 방을 열었을 때
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour
             {
 
             }
+            touchDoor = null;
         }
 
         // 플래그 표시 -오른쪽
@@ -140,6 +143,7 @@ public class PlayerController : MonoBehaviour
             _stageInfo.roomList[behindRoomNum - 1].Flag();
         }
     }
+    
 
     private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)
     {

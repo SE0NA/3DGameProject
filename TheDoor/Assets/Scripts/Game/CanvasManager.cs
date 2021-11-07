@@ -35,7 +35,7 @@ public class CanvasManager : MonoBehaviour
         else if (n == 1)
             scannerText.color = Color.blue;
         else if (n == 2)
-            scannerText.color = Color.cyan;
+            scannerText.color = Color.magenta;
         else if (n == 3)
             scannerText.color = Color.yellow;
         else if (n == 4)

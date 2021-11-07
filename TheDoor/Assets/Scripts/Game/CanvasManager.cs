@@ -8,7 +8,29 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Text bombCntText = null;
     [SerializeField] Text timerText = null;
     [SerializeField] Text scannerText = null;
+    [SerializeField] GameObject[] minimapUIList = null;
+    GameObject minimapUI = null;
+
     public float currentTime = 0f;
+
+    private void Start()
+    {
+        switch (FindObjectOfType<StageInfo>().currentStage)
+        {
+            case StageLevel.stage5x5:
+                minimapUI = minimapUIList[0];
+                break;
+            case StageLevel.stage7x7:
+                minimapUI = minimapUIList[1];
+                break;
+            case StageLevel.stage9x9:
+                minimapUI = minimapUIList[2];
+                break;
+        }
+        minimapUIList[0].SetActive(false);
+    //    minimapUIList[1].SetActive(false);
+     //   minimapUIList[2].SetActive(false);
+    }
 
     private void Update()
     {
@@ -41,5 +63,14 @@ public class CanvasManager : MonoBehaviour
             scannerText.color = Color.yellow;
         else if (n == 4)
             scannerText.color = Color.red;
+    }
+
+    public void ActiveMap()
+    {
+        minimapUI.SetActive(true);
+    }
+    public void CloseMap()
+    {
+        minimapUI.SetActive(false);
     }
 }

@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private DoorMove touchDoor = null;
     private bool istouchDoor = false;
 
+    private bool isMapActive = false;
+
     StageInfo _stageInfo;
     CanvasManager _canvasManager;
 
@@ -40,13 +42,21 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        // 플레이어 이동
         Move();
         Jump();
 
-        CameraRotation();
-        CharacterRotation();
+        if (!isMapActive)
+        {
+            // 플레이어-카메라 회전
+            CameraRotation();
+            CharacterRotation();
 
-        MouseClick();
+            // 마우스 클릭 이벤트(문열기/플래그)
+            MouseClick();
+        }
+        // 미니맵 열기
+        OpenMap();
     }
 
     void Move()     // 이동
@@ -116,16 +126,8 @@ public class PlayerController : MonoBehaviour
                 behindRoomNum = touchDoor.roomNum2;
             else
                 behindRoomNum = touchDoor.roomNum1;
-            
-            _stageInfo.roomList[behindRoomNum - 1].Open();
-            _canvasManager.SetBombCnt(_stageInfo.currentBombCnt);
 
-           // 폭탄이 있는 방을 열었을 때
-            if (_stageInfo.roomList[behindRoomNum - 1].hasBomb)
-            {
-
-            }
-            touchDoor = null;
+            PlayerOpenDoor(behindRoomNum - 1);
         }
 
         // 플래그 표시 -오른쪽
@@ -138,10 +140,42 @@ public class PlayerController : MonoBehaviour
             else
                 behindRoomNum = touchDoor.roomNum1;
 
-            _stageInfo.roomList[behindRoomNum - 1].Flag();
+            // 열리지 않은 방에만 플래그 표시 가능
+            if (!_stageInfo.roomList[behindRoomNum - 1].isOpened)
+            {
+                _stageInfo.roomList[behindRoomNum - 1].Flag();
+            }
         }
     }
-    
+    public void PlayerOpenDoor(int roomIndex)
+    {
+        _stageInfo.roomList[roomIndex].Open();
+        // 폭탄이 있는 방을 열었을 때
+        if (_stageInfo.roomList[roomIndex].hasBomb)
+        {
+        }
+        touchDoor = null;
+    }
+
+    private void OpenMap()
+    {
+        // 미니맵 열기
+        if (!isMapActive && Input.GetKeyDown(KeyCode.M))
+        {
+            Cursor.lockState = CursorLockMode.None;   // 마우스 커서 고정 풀기
+            Cursor.visible = true;
+            _canvasManager.ActiveMap();
+            isMapActive = true;
+        }
+        // 미니맵 닫기
+        else if(isMapActive && Input.GetKeyDown(KeyCode.M))
+        {
+            Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
+            Cursor.visible = false;
+            _canvasManager.CloseMap();
+            isMapActive = false;
+        }
+    }
 
     private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)
     {

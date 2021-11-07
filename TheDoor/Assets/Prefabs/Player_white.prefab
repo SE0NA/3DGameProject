@@ -2669,7 +2669,7 @@ GameObject:
   - component: {fileID: 6071438679290810432}
   - component: {fileID: 5772482343245943785}
   - component: {fileID: 7413318238912802319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_white
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2750,6 +2750,8 @@ MonoBehaviour:
   sensitivity: 5
   jumpPower: 4
   moveSpeed: 3
+  playerPos: 0
+  _doorInfoPanel: {fileID: 0}
 --- !u!65 &7413318238912802319
 BoxCollider:
   m_ObjectHideFlags: 0

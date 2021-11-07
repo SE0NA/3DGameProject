@@ -17,16 +17,45 @@ public class RoomInfo : MonoBehaviour
     public int roomNum;
     public bool isOpened = false;
     public bool hasBomb = false;
+    public bool hasFlag = false;
 
-    public GameObject lightObject;
+    public Light lightObject;
+
+    StageInfo _stageInfo;
 
     private void Start()
     {
-        lightObject.SetActive(false);
+        _stageInfo = FindObjectOfType<StageInfo>();
+
+        lightObject.enabled = false;
+        lightObject.color = Color.white;
+        if (roomNum == 13) lightObject.enabled = true;
     }
 
-    public void LightOn()
+    public void Open()
     {
-        lightObject.SetActive(true);
+        isOpened = true;
+        lightObject.enabled = true;
+        if (hasBomb)
+        {
+            lightObject.color = Color.red;
+        }
+    }
+    public void Flag()
+    {
+        if (!hasFlag)   // 플래그 표시하기
+        {
+            hasFlag = true;
+            lightObject.color = new Color(1f, 0.62f, 0f);
+            lightObject.enabled = true;
+            _stageInfo.BombCntDown();
+        }
+        else            // 플래그 취소하기
+        {
+            hasFlag = false;
+            lightObject.color = Color.white;
+            lightObject.enabled = false;
+            _stageInfo.BombCntUp();
+        }
     }
 }

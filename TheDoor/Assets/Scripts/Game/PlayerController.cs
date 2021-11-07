@@ -10,15 +10,27 @@ public class PlayerController : MonoBehaviour
     private float currentCameraRotationX;
     public float sensitivity; // 감도
 
-
     public int jumpPower;
     private bool isJumping;
     private bool isRunning;
     public int moveSpeed;
 
+    public int playerPos;   // 플레이어가 위치하는 방 번호
+
+    public GameObject _doorInfoPanel;
+
+    private DoorMove touchDoor = null;
+    private bool istouchDoor = false;
+
+    StageInfo _stageInfo;
+    CanvasManager _canvasManager;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        _stageInfo = FindObjectOfType<StageInfo>();
+        _canvasManager = FindObjectOfType<CanvasManager>();
+        _doorInfoPanel = FindObjectOfType<GameManager>()._doorInfoImage;
         isJumping = false;
         isRunning = false;
     }
@@ -30,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         CameraRotation();
         CharacterRotation();
+
+        MouseClick();
     }
 
     void Move()     // 이동
@@ -60,6 +74,71 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isJumping = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Room"))
+        {
+            playerPos = other.GetComponent<RoomInfo>().roomNum;
+            _canvasManager.SetScanner(_stageInfo.roomList[playerPos - 1].aroundBomb);
+        }
+        else if (other.gameObject.CompareTag("Door"))
+        {
+            istouchDoor = true;
+            touchDoor = other.gameObject.GetComponent<DoorMove>();
+            _doorInfoPanel.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Room"))
+        {
+            playerPos = 0;
+        }
+        else if (other.gameObject.CompareTag("Door"))
+        {
+            istouchDoor = false;
+            touchDoor = null;
+            _doorInfoPanel.SetActive(false);
+        }
+    }
+
+    private void MouseClick()
+    {
+        // 문열기 - 왼쪽
+        if (Input.GetMouseButtonDown(0) && istouchDoor)
+        {
+            int behindRoomNum;
+            touchDoor.DoorOpen();
+
+            if (touchDoor.roomNum1 == playerPos)
+                behindRoomNum = touchDoor.roomNum2;
+            else
+                behindRoomNum = touchDoor.roomNum1;
+
+            _stageInfo.roomList[behindRoomNum - 1].Open();
+            _stageInfo.currentBombCnt--;
+            _canvasManager.SetBombCnt(_stageInfo.currentBombCnt);
+
+           // 폭탄이 있는 방을 열었을 때
+            if (_stageInfo.roomList[behindRoomNum - 1].hasBomb)
+            {
+
+            }
+        }
+
+        // 플래그 표시 -오른쪽
+        else if (Input.GetMouseButtonDown(1) && istouchDoor)
+        {
+            int behindRoomNum;
+            if (touchDoor.roomNum1 == playerPos)
+                behindRoomNum = touchDoor.roomNum2;
+            else
+                behindRoomNum = touchDoor.roomNum1;
+
+            _stageInfo.roomList[behindRoomNum - 1].Flag();
+        }
     }
 
     private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)

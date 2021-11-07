@@ -10,21 +10,19 @@ public class DoorMove : MonoBehaviour
 
     public int roomNum1;
     public int roomNum2;
-
-    AudioSource doorAudioSource;
-    public AudioClip doorOpenClip;
-
+    
+    Animation dooropenAnim;
+    
     private void Start()
     {
-        doorAudioSource = GetComponent<AudioSource>();
+        dooropenAnim = GetComponent<Animation>();
     }
 
     public void DoorOpen()
     {
-        doorAudioSource.PlayOneShot(doorOpenClip);
-        if (isXaxis)
-        {
-            ;
-        }
+        leftDoor.GetComponent<AudioSource>().Play();
+        rightDoor.GetComponent<AudioSource>().Play();
+        dooropenAnim.Play();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 }

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     StageInfo _stageInfo;
     Vector3 startPosition;
 
+    public GameObject _doorInfoImage;
+
     private void Awake()
     {
         SendStageInfo _sendStageInfo = FindObjectOfType<SendStageInfo>();
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
         }
 
         _stageInfo = FindObjectOfType<StageInfo>();
-        _stageInfo.roomList[_stageInfo.startRoomNum - 1].LightOn();
+        _doorInfoImage.SetActive(false);
         SetBombInRoom();    // 폭탄 설치
     }
 
@@ -48,11 +50,15 @@ public class GameManager : MonoBehaviour
         int currentBombCnt = 0;                 // 설치된 폭탄수
         
         // 폭탄 설치
-        while (currentBombCnt < _stageInfo.bombCnt)
+        while (currentBombCnt < _stageInfo.GetBombCnt())
         {
             int randomNum = Random.Range(0, _stageInfo.roomList.Length);
-            // 플레이어가 시작하는 방은 폭탄설치 불가
-            if (randomNum + 1 == _stageInfo.startRoomNum) continue;
+            // 플레이어가 시작하는 방을 중심으로 사방은 폭탄 설치 불가
+            if (randomNum + 1 == _stageInfo.startRoomNum ||
+                randomNum == _stageInfo.startRoomNum ||
+                randomNum + 2 == _stageInfo.startRoomNum ||
+                randomNum + 1 + _stageInfo.stageLine == _stageInfo.startRoomNum ||
+                randomNum + 1 - _stageInfo.stageLine == _stageInfo.startRoomNum) continue;
 
             _stageInfo.roomList[randomNum].hasBomb = true;
             currentBombCnt++;

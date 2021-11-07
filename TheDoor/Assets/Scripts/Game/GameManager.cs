@@ -54,14 +54,17 @@ public class GameManager : MonoBehaviour
         {
             int randomNum = Random.Range(0, _stageInfo.roomList.Length);
             // 플레이어가 시작하는 방을 중심으로 사방은 폭탄 설치 불가
-            if (randomNum + 1 == _stageInfo.startRoomNum ||
-                randomNum == _stageInfo.startRoomNum ||
-                randomNum + 2 == _stageInfo.startRoomNum ||
-                randomNum + 1 + _stageInfo.stageLine == _stageInfo.startRoomNum ||
-                randomNum + 1 - _stageInfo.stageLine == _stageInfo.startRoomNum) continue;
-
-            _stageInfo.roomList[randomNum].hasBomb = true;
-            currentBombCnt++;
+            // 이미 설치된 방은 설치 불가
+            if (randomNum != _stageInfo.startRoomNum - 2 &&
+                randomNum != _stageInfo.startRoomNum - 1 &&
+                randomNum != _stageInfo.startRoomNum &&
+                randomNum != _stageInfo.startRoomNum - 1 - _stageInfo.stageLine &&
+                randomNum != _stageInfo.startRoomNum - 1 + _stageInfo.stageLine &&
+                !_stageInfo.roomList[randomNum].hasBomb)
+            {
+                _stageInfo.roomList[randomNum].hasBomb = true;
+                currentBombCnt++;
+            }
         }
         
         // 모든 방의 RoomInfo.aroundBomb 입력
@@ -88,7 +91,7 @@ public class GameManager : MonoBehaviour
                 if (_stageInfo.roomList[i - _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
             }
             // Corner DR: 우측 하단
-            else if (_stageInfo.roomList[i].roomtype == RoomType.CornerUR)
+            else if (_stageInfo.roomList[i].roomtype == RoomType.CornerDR)
             {
                 if (_stageInfo.roomList[i - 1].hasBomb) _stageInfo.roomList[i].aroundBomb++;
                 if (_stageInfo.roomList[i - _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
@@ -108,14 +111,14 @@ public class GameManager : MonoBehaviour
                 if (_stageInfo.roomList[i - _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
             }
             // Side L: 좌측면
-            else if (_stageInfo.roomList[i].roomtype == RoomType.SideU)
+            else if (_stageInfo.roomList[i].roomtype == RoomType.SideL)
             {
                 if (_stageInfo.roomList[i - _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
                 if (_stageInfo.roomList[i + 1].hasBomb) _stageInfo.roomList[i].aroundBomb++;
                 if (_stageInfo.roomList[i + _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
             }
             // Side R: 우측면
-            else if (_stageInfo.roomList[i].roomtype == RoomType.SideU)
+            else if (_stageInfo.roomList[i].roomtype == RoomType.SideR)
             {
                 if (_stageInfo.roomList[i - _stageInfo.stageLine].hasBomb) _stageInfo.roomList[i].aroundBomb++;
                 if (_stageInfo.roomList[i - 1].hasBomb) _stageInfo.roomList[i].aroundBomb++;

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    [SerializeField] Text bombCntText;
-    [SerializeField] Text timerText;
-    [SerializeField] Text scannerText;
+    [SerializeField] Text bombCntText = null;
+    [SerializeField] Text timerText = null;
+    [SerializeField] Text scannerText = null;
     public float currentTime = 0f;
 
     private void Update()
@@ -23,8 +23,9 @@ public class CanvasManager : MonoBehaviour
 
     private void Timer()
     {
+        // 1:07 형식
         timerText.text = Mathf.Round(currentTime / 60).ToString() + ":" +
-                        Mathf.Round(currentTime % 60).ToString();
+                        Mathf.Round(currentTime % 60 / 10).ToString() + Mathf.Round(currentTime % 60 % 10).ToString();
     }
 
     public void SetScanner(int n)

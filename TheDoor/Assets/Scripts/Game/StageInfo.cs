@@ -13,7 +13,7 @@ public class StageInfo : MonoBehaviour
     
     public RoomInfo[] roomList;
     // 배열 인덱스 + 1 = 실제 방번호
-    [SerializeField] int bombCnt; // 폭탄 수
+    [SerializeField] int bombCnt = 0; // 폭탄 수
 
     public int startRoomNum;    // 게임 시작시 플레이어의 위치
     public int stageLine;       // 스테이지의 크기

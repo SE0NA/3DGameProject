@@ -95,11 +95,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Room"))
-        {
-            playerPos = 0;
-        }
-        else if (other.gameObject.CompareTag("Door"))
+        if (other.gameObject.CompareTag("Door"))
         {
             istouchDoor = false;
             touchDoor = null;
@@ -110,16 +106,17 @@ public class PlayerController : MonoBehaviour
     private void MouseClick()
     {
         // 문열기 - 왼쪽
-        if (Input.GetMouseButtonDown(0) && istouchDoor)
+        if (Input.GetMouseButtonDown(0) && istouchDoor && touchDoor)
         {
+            _doorInfoPanel.SetActive(false);
             int behindRoomNum;
             touchDoor.DoorOpen();
-
+            
             if (touchDoor.roomNum1 == playerPos)
                 behindRoomNum = touchDoor.roomNum2;
             else
                 behindRoomNum = touchDoor.roomNum1;
-
+            
             _stageInfo.roomList[behindRoomNum - 1].Open();
             _canvasManager.SetBombCnt(_stageInfo.currentBombCnt);
 
@@ -132,8 +129,9 @@ public class PlayerController : MonoBehaviour
         }
 
         // 플래그 표시 -오른쪽
-        else if (Input.GetMouseButtonDown(1) && istouchDoor)
+        else if (Input.GetMouseButtonDown(1) && istouchDoor && touchDoor)
         {
+            _doorInfoPanel.SetActive(false);
             int behindRoomNum;
             if (touchDoor.roomNum1 == playerPos)
                 behindRoomNum = touchDoor.roomNum2;

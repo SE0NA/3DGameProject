@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     StageInfo _stageInfo;
     CanvasManager _canvasManager;
 
+    Animator _playerAnim;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
         _stageInfo = FindObjectOfType<StageInfo>();
         _canvasManager = FindObjectOfType<CanvasManager>();
         _doorInfoPanel = FindObjectOfType<GameManager>()._doorInfoImage;
+        _playerAnim = gameObject.GetComponent<Animator>();
+
         isJumping = false;
         isRunning = false;
     }

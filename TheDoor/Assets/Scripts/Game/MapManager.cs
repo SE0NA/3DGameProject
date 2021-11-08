@@ -18,21 +18,21 @@ public class MapManager : MonoBehaviour
             gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
         gameObject.transform.GetChild(_stageInfo.startRoomNum - 1).GetComponent<Image>().color = Color.white;
+
+        gameObject.SetActive(false);
     }
 
-    public void ChangeStateMapButton(int indexNum, int state)
+    public void SetButtonColor()
     {
-        if (state == 0) // 열린 방
+        gameObject.SetActive(true);
+        for(int i = 0; i < gameObject.transform.childCount; i++)
         {
-            gameObject.transform.GetChild(indexNum).GetComponent<Image>().color = Color.white;
-        }
-        else if (state == 1) // 플래그
-        {
-            gameObject.transform.GetChild(indexNum).GetComponent<Image>().color = Color.yellow;
-        }
-        else if(state==2)   // none
-        {
-            gameObject.transform.GetChild(indexNum).GetComponent<Image>().color = Color.gray;
+            if (_stageInfo.roomList[i].isOpened)
+                gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.white;
+            else if (_stageInfo.roomList[i].hasFlag)
+                gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+            else
+                gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
     }
 

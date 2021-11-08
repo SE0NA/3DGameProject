@@ -33,7 +33,8 @@ public class RoomInfo : MonoBehaviour
 
         lightObject.enabled = false;
         lightObject.color = Color.white;
-        if (roomNum == 13) lightObject.enabled = true;
+
+        if (roomNum == 13) Open();
     }
 
     public void Open()
@@ -41,7 +42,7 @@ public class RoomInfo : MonoBehaviour
         isOpened = true;
         lightObject.enabled = true;
         _minimapManager.ChangeRoomPanelState(roomNum - 1, 0, false);
-        _mapManager.ChangeStateMapButton(roomNum - 1, 0);
+
         if (hasBomb)
         {
             lightObject.color = Color.red;
@@ -62,7 +63,6 @@ public class RoomInfo : MonoBehaviour
             lightObject.color = new Color(1f, 0.62f, 0f);
             lightObject.enabled = true;
             _minimapManager.ChangeRoomPanelState(roomNum - 1, 1, false);
-            _mapManager.ChangeStateMapButton(roomNum - 1, 1);
             _stageInfo.BombCntDown();
         }
         else            // 플래그 취소하기
@@ -71,7 +71,6 @@ public class RoomInfo : MonoBehaviour
             lightObject.color = Color.white;
             lightObject.enabled = false;
             _minimapManager.ChangeRoomPanelState(roomNum - 1, 2, false);
-            _mapManager.ChangeStateMapButton(roomNum - 1, 2);
             _stageInfo.BombCntUp();
         }
     }

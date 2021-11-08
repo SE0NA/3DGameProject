@@ -8,8 +8,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Text bombCntText = null;
     [SerializeField] Text timerText = null;
     [SerializeField] Text scannerText = null;
-    [SerializeField] GameObject[] minimapUIList = null;
-    GameObject minimapUI = null;
+    [SerializeField] MapManager[] minimapUIList = null;
+    MapManager minimapUI = null;
 
     public float currentTime = 0f;
 
@@ -27,9 +27,6 @@ public class CanvasManager : MonoBehaviour
                 minimapUI = minimapUIList[2];
                 break;
         }
-        minimapUIList[0].SetActive(false);
-    //    minimapUIList[1].SetActive(false);
-     //   minimapUIList[2].SetActive(false);
     }
 
     private void Update()
@@ -67,10 +64,10 @@ public class CanvasManager : MonoBehaviour
 
     public void ActiveMap()
     {
-        minimapUI.SetActive(true);
+        minimapUI.SetButtonColor();
     }
     public void CloseMap()
     {
-        minimapUI.SetActive(false);
+        minimapUI.gameObject.SetActive(false);
     }
 }

@@ -1023,7 +1023,7 @@ MonoBehaviour:
   timerText: {fileID: 527484063}
   scannerText: {fileID: 405934609}
   minimapUIList:
-  - {fileID: 1811679427}
+  - {fileID: 1811679428}
   - {fileID: 0}
   - {fileID: 0}
   currentTime: 0
@@ -5618,7 +5618,7 @@ GameObject:
   - component: {fileID: 1811679429}
   - component: {fileID: 1811679428}
   m_Layer: 5
-  m_Name: minimap5
+  m_Name: moveMap5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

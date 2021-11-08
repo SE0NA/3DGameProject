@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         touchDoor = null;
     }
 
-    private void OpenMap()
+    public void OpenMap()
     {
         // 미니맵 열기
         if (!isMapActive && Input.GetKeyDown(KeyCode.M))

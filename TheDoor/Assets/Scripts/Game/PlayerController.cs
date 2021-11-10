@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     StageInfo _stageInfo;
     CanvasManager _canvasManager;
 
-    Animator _playerAnim;
+    Animator playerAnim;
 
     void Start()
     {
@@ -38,7 +38,8 @@ public class PlayerController : MonoBehaviour
         _stageInfo = FindObjectOfType<StageInfo>();
         _canvasManager = FindObjectOfType<CanvasManager>();
         _doorInfoPanel = FindObjectOfType<GameManager>()._doorInfoImage;
-        _playerAnim = gameObject.GetComponent<Animator>();
+        playerAnim = GetComponent<Animator>();
+        playerAnim.Play("Idle");
 
         isJumping = false;
         isRunning = false;
@@ -65,25 +66,34 @@ public class PlayerController : MonoBehaviour
 
     void Move()     // 이동
     {
+        bool isWalking = false;
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
+        if (h != 0 || v != 0) isWalking = true;
+        
         if (Input.GetKeyDown(KeyCode.LeftShift))
             isRunning = true;
         else if (Input.GetKeyUp(KeyCode.LeftShift))
             isRunning = false;
 
-        if(isRunning)   // 달리기
+        if (isRunning)  // 달리기
+        {
+            playerAnim.Play("Run");
             transform.Translate((new Vector3(h, 0, v) * moveSpeed * 2) * Time.deltaTime);
-        else            // 걷기
+        }
+        else if(isWalking)            // 걷기
+        {
+            playerAnim.Play("Walk");
             transform.Translate((new Vector3(h, 0, v) * moveSpeed) * Time.deltaTime);
-        
+        }
     }
     void Jump()     // 점프
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             isJumping = true;
+            playerAnim.Play("Jump");
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
     }

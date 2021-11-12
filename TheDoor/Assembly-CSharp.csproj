@@ -66,6 +66,7 @@
     <Compile Include="Assets\Etc\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\Scripts\Game\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Game\DoorMove.cs" />
+    <Compile Include="Assets\Scripts\Game\GameEndBtn.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\MapManager.cs" />
     <Compile Include="Assets\Scripts\Game\MiniMapManager.cs" />

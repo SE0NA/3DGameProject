@@ -54,6 +54,7 @@ public class RoomInfo : MonoBehaviour
             lightObject.color = Color.white;
             _stageInfo.BombCntUp();
         }
+        _stageInfo.checkedRoomCnt++;
     }
     public void Flag()
     {
@@ -64,6 +65,7 @@ public class RoomInfo : MonoBehaviour
             lightObject.enabled = true;
             _minimapManager.ChangeRoomPanelState(roomNum - 1, 1, false);
             _stageInfo.BombCntDown();
+            _stageInfo.checkedRoomCnt++;
         }
         else            // 플래그 취소하기
         {
@@ -72,6 +74,7 @@ public class RoomInfo : MonoBehaviour
             lightObject.enabled = false;
             _minimapManager.ChangeRoomPanelState(roomNum - 1, 2, false);
             _stageInfo.BombCntUp();
+            _stageInfo.checkedRoomCnt--;
         }
     }
 }

@@ -784,10 +784,11 @@ MonoBehaviour:
   - {fileID: 1116605698006863243}
   - {fileID: 7103248309362899258}
   - {fileID: 7091198700715301663}
-  bombCnt: 10
+  bombCnt: 1
   startRoomNum: 13
   stageLine: 5
   currentBombCnt: 0
+  checkedRoomCnt: 0
 --- !u!1 &1426922933682702390
 GameObject:
   m_ObjectHideFlags: 0

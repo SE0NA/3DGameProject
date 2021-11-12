@@ -2750,6 +2750,7 @@ MonoBehaviour:
   jumpPower: 4
   moveSpeed: 3
   playerPos: 0
+  startClip: {fileID: 8300000, guid: 26c212c7d989d42acbe802823a033bb4, type: 3}
   walkClip: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   jumpClip: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
 --- !u!65 &7413318238912802319

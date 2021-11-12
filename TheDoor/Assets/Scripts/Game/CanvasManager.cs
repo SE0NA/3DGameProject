@@ -9,15 +9,21 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Text timerText = null;
     [SerializeField] Text scannerText = null;
     [SerializeField] GameObject deadPanel = null;
+    [SerializeField] GameObject clearPanel = null;
+    [SerializeField] Text clearText = null;
+
     [SerializeField] MapManager[] minimapUIList = null;
     MapManager minimapUI = null;
 
     private float sec = 0f;
     private int min = 0;
 
+    public bool isEnd = false;
+
     private void Start()
     {
         deadPanel.SetActive(false);
+        clearPanel.SetActive(false);
 
         switch (FindObjectOfType<StageInfo>().currentStage)
         {
@@ -34,8 +40,11 @@ public class CanvasManager : MonoBehaviour
     }
 
     private void Update()
-    { 
-        Timer();
+    {
+        if (!isEnd)
+        {
+            Timer();
+        }
     }
 
     public void SetBombCnt(int n)
@@ -81,5 +90,50 @@ public class CanvasManager : MonoBehaviour
     public void PopDeadPanel()
     {
         deadPanel.SetActive(true);
+    }
+
+    public void PopClearPanel()
+    {
+        clearPanel.SetActive(true);
+        int record = min * 60 + (int)sec;
+        bool isBest = false;
+        int best = 0;
+        StageInfo _stageInfo = FindObjectOfType<StageInfo>();
+
+        switch (_stageInfo.currentStage)
+        {
+            case StageLevel.stage5x5:
+                best = PlayerPrefs.GetInt("BestScore_5x5");
+                if (record > best)
+                {
+                    isBest = true;
+                    PlayerPrefs.SetInt("BestScore_5x5", record);
+                }
+                break;
+
+            case StageLevel.stage7x7:
+                best = PlayerPrefs.GetInt("BestScore_7x7");
+                if (record > best)
+                {
+                    isBest = true;
+                    PlayerPrefs.SetInt("BestScore_7x7", record);
+                }
+                break;
+
+            case StageLevel.stage9x9:
+                best = PlayerPrefs.GetInt("BestScore_9x9");
+                if (record > best)
+                {
+                    isBest = true;
+                    PlayerPrefs.SetInt("BestScore_9x9", record);
+                }
+                break;
+        }
+        if (isBest)
+            clearText.text = "New Record!";
+        else
+        {
+            clearText.text = "Best Score: " + string.Format("{0:D2}:{1:D2}", best / 60, best % 60);
+        }
     }
 }

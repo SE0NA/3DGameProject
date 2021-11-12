@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour
     private bool istouchDoor = false;
 
     private bool isMapActive = false;
-    private bool isDead = false;
+    private bool isEnd = false;
 
     StageInfo _stageInfo;
     CanvasManager _canvasManager;
 
     Animator playerAnim;
     AudioSource playerAudioSource;
+    public AudioClip startClip;
     public AudioClip walkClip;
     public AudioClip jumpClip;
     
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
@@ -51,11 +51,13 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
         isRunning = false;
         isWalking = false;
+
+        playerAudioSource.PlayOneShot(startClip);
     }
     
     void Update()
     {
-        if (!isDead)
+        if (!isEnd)
         {
             // 플레이어 이동
             Move();
@@ -169,9 +171,11 @@ public class PlayerController : MonoBehaviour
                 behindRoomNum = touchDoor.roomNum1;
 
             PlayerOpenDoor(behindRoomNum - 1);
+            if (_stageInfo.CheckAllRoom())
+                Clear();
         }
 
-        // 플래그 표시 -오른쪽
+        // 플래그 표시 - 오른쪽
         else if (Input.GetMouseButtonDown(1) && istouchDoor && touchDoor)
         {
             _doorInfoPanel.SetActive(false);
@@ -194,7 +198,7 @@ public class PlayerController : MonoBehaviour
         // 폭탄이 있는 방을 열었을 때
         if (_stageInfo.roomList[roomIndex].hasBomb)
         {
-            isDead = true;
+            isEnd = true;
             Invoke("Die", 0.5f);
         }
         touchDoor = null;
@@ -243,6 +247,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        _canvasManager.isEnd = true;
         
         myCamera.GetComponent<Animation>().Play();
         playerAnim.Play("Dead");
@@ -251,5 +256,14 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = true;
 
         _canvasManager.PopDeadPanel();
+    }
+    private void Clear()
+    {
+        isEnd = true;
+
+        Cursor.lockState = CursorLockMode.None;   // 마우스 커서 고정 풀기
+        Cursor.visible = true;
+
+        _canvasManager.PopClearPanel();
     }
 }

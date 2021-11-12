@@ -13,21 +13,27 @@ public class PlayerController : MonoBehaviour
     public int jumpPower;
     private bool isJumping;
     private bool isRunning;
+    private bool isWalking;
     public int moveSpeed;
 
     public int playerPos;   // 플레이어가 위치하는 방 번호
 
-    public GameObject _doorInfoPanel;
+    GameObject _doorInfoPanel;
 
     private DoorMove touchDoor = null;
     private bool istouchDoor = false;
 
     private bool isMapActive = false;
+    private bool isDead = false;
 
     StageInfo _stageInfo;
     CanvasManager _canvasManager;
 
     Animator playerAnim;
+    AudioSource playerAudioSource;
+    public AudioClip walkClip;
+    public AudioClip jumpClip;
+    
 
     void Start()
     {
@@ -39,34 +45,39 @@ public class PlayerController : MonoBehaviour
         _canvasManager = FindObjectOfType<CanvasManager>();
         _doorInfoPanel = FindObjectOfType<GameManager>()._doorInfoImage;
         playerAnim = GetComponent<Animator>();
+        playerAudioSource = GetComponent<AudioSource>();
         playerAnim.Play("Idle");
 
         isJumping = false;
         isRunning = false;
+        isWalking = false;
     }
     
     void Update()
     {
-        // 플레이어 이동
-        Move();
-        Jump();
-
-        if (!isMapActive)
+        if (!isDead)
         {
-            // 플레이어-카메라 회전
-            CameraRotation();
-            CharacterRotation();
+            // 플레이어 이동
+            Move();
+            Jump();
 
-            // 마우스 클릭 이벤트(문열기/플래그)
-            MouseClick();
+            if (!isMapActive)
+            {
+                // 플레이어-카메라 회전
+                CameraRotation();
+                CharacterRotation();
+
+                // 마우스 클릭 이벤트(문열기/플래그)
+                MouseClick();
+            }
+            // 미니맵 열기
+            OpenMap();
         }
-        // 미니맵 열기
-        OpenMap();
     }
 
     void Move()     // 이동
     {
-        bool isWalking = false;
+        isWalking = false;
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
@@ -77,14 +88,26 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
             isRunning = false;
 
-        if (isRunning)  // 달리기
+        if (isRunning && isWalking)  // 달리기
         {
-            playerAnim.Play("Run");
+            if (!isJumping)
+            {
+                playerAudioSource.pitch = 1.5f;
+                if (!playerAudioSource.isPlaying)
+                    playerAudioSource.PlayOneShot(walkClip);
+                playerAnim.Play("Run");
+            }
             transform.Translate((new Vector3(h, 0, v) * moveSpeed * 2) * Time.deltaTime);
         }
         else if(isWalking)            // 걷기
         {
-            playerAnim.Play("Walk");
+            if (!isJumping)
+            {
+                playerAudioSource.pitch = 1f;
+                if (!playerAudioSource.isPlaying)
+                    playerAudioSource.PlayOneShot(walkClip);
+                playerAnim.Play("Walk");
+            }
             transform.Translate((new Vector3(h, 0, v) * moveSpeed) * Time.deltaTime);
         }
     }
@@ -92,7 +115,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
+            playerAudioSource.pitch = 1f;
             isJumping = true;
+            playerAudioSource.Stop();
+            playerAudioSource.PlayOneShot(jumpClip);
+
             playerAnim.Play("Jump");
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
@@ -167,6 +194,7 @@ public class PlayerController : MonoBehaviour
         // 폭탄이 있는 방을 열었을 때
         if (_stageInfo.roomList[roomIndex].hasBomb)
         {
+            Die();
         }
         touchDoor = null;
     }
@@ -194,6 +222,7 @@ public class PlayerController : MonoBehaviour
     private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)
     {
         float x = Input.GetAxisRaw("Mouse Y");  // x축으로 회전
+        
         float cameraRotationX = x * sensitivity;
         currentCameraRotationX -= cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
@@ -205,5 +234,11 @@ public class PlayerController : MonoBehaviour
         float y = Input.GetAxisRaw("Mouse X");  // y축으로 회전
         Vector3 characterRotationY = new Vector3(0f, y, 0f) * sensitivity;
         gameObject.transform.rotation *= Quaternion.Euler(characterRotationY);
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        _canvasManager.PopDeadPanel();
     }
 }

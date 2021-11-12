@@ -8,6 +8,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] Text bombCntText = null;
     [SerializeField] Text timerText = null;
     [SerializeField] Text scannerText = null;
+    [SerializeField] GameObject deadPanel = null;
     [SerializeField] MapManager[] minimapUIList = null;
     MapManager minimapUI = null;
 
@@ -15,6 +16,8 @@ public class CanvasManager : MonoBehaviour
 
     private void Start()
     {
+        deadPanel.SetActive(false);
+
         switch (FindObjectOfType<StageInfo>().currentStage)
         {
             case StageLevel.stage5x5:
@@ -69,5 +72,10 @@ public class CanvasManager : MonoBehaviour
     public void CloseMap()
     {
         minimapUI.gameObject.SetActive(false);
+    }
+
+    public void PopDeadPanel()
+    {
+        deadPanel.SetActive(true);
     }
 }

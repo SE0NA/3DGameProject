@@ -42,7 +42,7 @@ public class MapManager : MonoBehaviour
         _playerController.transform.position = _stageInfo.roomList[roomNum - 1].roomPos.position;
         _playerController.PlayerOpenDoor(roomNum - 1);
         // 맵 닫기
-        _playerController.OpenMap();
+        _playerController.CloseMap();
         gameObject.SetActive(false);
     }
 }

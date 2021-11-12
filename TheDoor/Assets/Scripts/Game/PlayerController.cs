@@ -194,7 +194,8 @@ public class PlayerController : MonoBehaviour
         // 폭탄이 있는 방을 열었을 때
         if (_stageInfo.roomList[roomIndex].hasBomb)
         {
-            Die();
+            isDead = true;
+            Invoke("Die", 0.5f);
         }
         touchDoor = null;
     }
@@ -212,11 +213,15 @@ public class PlayerController : MonoBehaviour
         // 미니맵 닫기
         else if(isMapActive && Input.GetKeyDown(KeyCode.M))
         {
-            Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
-            Cursor.visible = false;
-            _canvasManager.CloseMap();
-            isMapActive = false;
+            CloseMap();
         }
+    }
+    public void CloseMap()
+    {
+        Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
+        Cursor.visible = false;
+        _canvasManager.CloseMap();
+        isMapActive = false;
     }
 
     private void CameraRotation()   // 1인칭 카메라 회전(마우스-상하)
@@ -238,7 +243,13 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        isDead = true;
+        
+        myCamera.GetComponent<Animation>().Play();
+        playerAnim.Play("Dead");
+
+        Cursor.lockState = CursorLockMode.None;   // 마우스 커서 고정 풀기
+        Cursor.visible = true;
+
         _canvasManager.PopDeadPanel();
     }
 }

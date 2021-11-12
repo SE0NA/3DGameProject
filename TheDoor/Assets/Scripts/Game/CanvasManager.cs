@@ -12,7 +12,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] MapManager[] minimapUIList = null;
     MapManager minimapUI = null;
 
-    public float currentTime = 0f;
+    private float sec = 0f;
+    private int min = 0;
 
     private void Start()
     {
@@ -33,8 +34,7 @@ public class CanvasManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        currentTime += Time.deltaTime;
+    { 
         Timer();
     }
 
@@ -45,9 +45,13 @@ public class CanvasManager : MonoBehaviour
 
     private void Timer()
     {
-        // 1:07 형식
-        timerText.text = Mathf.Round(currentTime / 60).ToString() + ":" +
-                        Mathf.Round(currentTime % 60 / 10).ToString() + Mathf.Round(currentTime % 60 % 10).ToString();
+        sec += Time.deltaTime;
+
+        timerText.text = string.Format("{0:D2}:{1:D2}", min, (int)sec);
+        if((int)sec > 59)
+        {
+            sec = 0;    min++;
+        }
     }
 
     public void SetScanner(int n)

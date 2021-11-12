@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Main\LightBlinking.cs" />
     <Compile Include="Assets\Scripts\Main\MainBtnClick.cs" />
     <Compile Include="Assets\Scripts\Main\MainBtnEffect.cs" />
+    <Compile Include="Assets\Scripts\Main\OptionManager.cs" />
     <Compile Include="Assets\Scripts\Main\SendStageInfo.cs" />
     <None Include="Assets\Etc\_Barking_Dog\Readme_Please.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

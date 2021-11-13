@@ -34,10 +34,10 @@ public class RoomInfo : MonoBehaviour
         lightObject.enabled = false;
         lightObject.color = Color.white;
 
-        if (roomNum == 13) Open();
+        if (roomNum == _stageInfo.startRoomNum) Open(false);
     }
 
-    public void Open()
+    public void Open(bool behindStateisOpen)
     {
         isOpened = true;
         lightObject.enabled = true;
@@ -53,8 +53,14 @@ public class RoomInfo : MonoBehaviour
             hasFlag = false;
             lightObject.color = Color.white;
             _stageInfo.BombCntUp();
+            _stageInfo.checkedOpenedRoomCnt++;
         }
-        _stageInfo.checkedRoomCnt++;
+        else if(!behindStateisOpen)
+        {
+            _stageInfo.checkedRoomCnt++;
+            _stageInfo.checkedOpenedRoomCnt++;
+            Debug.Log("checkedRoomCnt:" + _stageInfo.checkedRoomCnt + " checkedOpenRoom: " + _stageInfo.checkedOpenedRoomCnt);
+        }
     }
     public void Flag()
     {
@@ -76,5 +82,6 @@ public class RoomInfo : MonoBehaviour
             _stageInfo.BombCntUp();
             _stageInfo.checkedRoomCnt--;
         }
+        Debug.Log("checkedRoomCnt:" + _stageInfo.checkedRoomCnt + " checkedOpenRoom: " + _stageInfo.checkedOpenedRoomCnt);
     }
 }

@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
             else
                 behindRoomNum = touchDoor.roomNum1;
 
-            PlayerOpenDoor(behindRoomNum - 1);
+            PlayerOpenDoor(behindRoomNum - 1, _stageInfo.roomList[behindRoomNum-1].isOpened);
             if (_stageInfo.CheckAllRoom())
                 Clear();
         }
@@ -192,9 +192,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void PlayerOpenDoor(int roomIndex)
+    public void PlayerOpenDoor(int roomIndex, bool behindStateisOpen)
     {
-        _stageInfo.roomList[roomIndex].Open();
+        _stageInfo.roomList[roomIndex].Open(behindStateisOpen);
         // 폭탄이 있는 방을 열었을 때
         if (_stageInfo.roomList[roomIndex].hasBomb)
         {
@@ -260,6 +260,7 @@ public class PlayerController : MonoBehaviour
     private void Clear()
     {
         isEnd = true;
+        myCamera.GetComponent<Animation>().Play();
 
         Cursor.lockState = CursorLockMode.None;   // 마우스 커서 고정 풀기
         Cursor.visible = true;

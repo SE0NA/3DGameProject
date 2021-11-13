@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
                 gameStage.transform.position = new Vector3(0, 0, 0);
                 startPosition = new Vector3(20.0f, 0.5f, -20.0f);
                 break;
+
+            case StageLevel.stage7x7:
+                gameStage = Instantiate(stagePrefabs[1]);
+                gameStage.transform.position = new Vector3(0, 0, 0);
+                startPosition = new Vector3(33.0f, 0.5f, -33.0f);
+                break;
         }
 
         // 캐릭터 생성
@@ -37,7 +43,7 @@ public class GameManager : MonoBehaviour
         if(gameStage != null)   // 스테이지 생성시 실행
         {
             player = Instantiate(playerPrefab);
-            player.transform.localPosition = startPosition;
+            player.transform.position = startPosition;
         }
 
         _stageInfo = FindObjectOfType<StageInfo>();

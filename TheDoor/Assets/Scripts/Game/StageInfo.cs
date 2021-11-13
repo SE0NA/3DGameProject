@@ -22,6 +22,7 @@ public class StageInfo : MonoBehaviour
 
     public int currentBombCnt;
     public int checkedRoomCnt;
+    public int checkedOpenedRoomCnt;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class StageInfo : MonoBehaviour
 
         currentBombCnt = bombCnt;
         checkedRoomCnt = 0;
+        checkedOpenedRoomCnt = 0;
         _canvasManager.SetBombCnt(currentBombCnt);
     }
 
@@ -52,22 +54,17 @@ public class StageInfo : MonoBehaviour
         // 모든 방이 체크됨 > 게임 클리어
         if (checkedRoomCnt == roomList.Length)
         {
+            Debug.Log("checkedRoomCnt:" + checkedRoomCnt + " / roomList.Length: " + roomList.Length);
             return true;
         }
 
-        // (접근 불가) 남은 방수 == 폭탄수 -> 폭탄이 있는 곳만 열리지 않음
-        // > 게임 클리어
-        int remainRoom = 0;
-
-        for(int i = 0; i < roomList.Length; i++)
+        // 열린 방수 + 폭탄수 = 전체 방수 > 게임 클리어
+        else if (checkedOpenedRoomCnt + bombCnt == roomList.Length)
         {
-            if (!roomList[i].isOpened)
-                remainRoom++;
-        }
-        if(remainRoom == bombCnt)
-        {
+            Debug.Log("checkedRoomCnt:" + checkedRoomCnt + " / roomList.Length: " + roomList.Length);
             return true;
         }
+        
         return false;
     }
 }

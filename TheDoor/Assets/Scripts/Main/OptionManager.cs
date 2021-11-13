@@ -12,11 +12,14 @@ public class OptionManager : MonoBehaviour
 
     public GameObject[] activeFalseObejcts;
     public GameObject optionPanel;
+    public GameObject deletePanel;
 
     public AudioMixer myAudio;
 
     public void Start()
     {
+        deletePanel.SetActive(false);
+
         masterSlider.value = PlayerPrefs.GetFloat("masterAudioMixer");
         bgmSlider.value = PlayerPrefs.GetFloat("bgmAudioMixer");
         sfxSlider.value = PlayerPrefs.GetFloat("sfxAudioMixer");
@@ -48,6 +51,19 @@ public class OptionManager : MonoBehaviour
                 PlayerPrefs.SetFloat("sfxAudioMixer", sound);
                 break;
         }
+    }
+
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
+        optionPanel.SetActive(false);
+        deletePanel.SetActive(true);
+        Invoke("FinishResetData", 2f);
+    }
+    private void FinishResetData()
+    {
+        deletePanel.SetActive(false);
+        optionPanel.SetActive(true);
     }
 
     public void ClickBackBtn()

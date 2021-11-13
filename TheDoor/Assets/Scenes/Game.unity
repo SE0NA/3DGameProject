@@ -6104,7 +6104,7 @@ MonoBehaviour:
   currentStageLevel: 0
   stagePrefabs:
   - {fileID: 1163271331456861838, guid: d4d2fb3c5cc1b5848900840ac7ee88ca, type: 3}
-  - {fileID: 1163271331456861838, guid: d4d2fb3c5cc1b5848900840ac7ee88ca, type: 3}
+  - {fileID: 1163271331456861838, guid: 55618d4d9a336e7438fab0f761990500, type: 3}
   - {fileID: 1163271331456861838, guid: d4d2fb3c5cc1b5848900840ac7ee88ca, type: 3}
   playerPrefab: {fileID: 5772482343245943786, guid: 9a7a6d0050190404694053b62fc89eba,
     type: 3}

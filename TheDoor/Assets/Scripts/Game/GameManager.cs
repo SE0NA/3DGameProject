@@ -36,6 +36,12 @@ public class GameManager : MonoBehaviour
                 gameStage.transform.position = new Vector3(0, 0, 0);
                 startPosition = new Vector3(33.0f, 0.5f, -33.0f);
                 break;
+
+            case StageLevel.stage9x9:
+                gameStage = Instantiate(stagePrefabs[2]);
+                gameStage.transform.position = new Vector3(0, 0, 0);
+                startPosition = new Vector3(46.0f, 0.5f, -46.0f);
+                break;
         }
 
         // 캐릭터 생성

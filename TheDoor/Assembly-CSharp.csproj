@@ -118,12 +118,6 @@
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/TheDoor/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

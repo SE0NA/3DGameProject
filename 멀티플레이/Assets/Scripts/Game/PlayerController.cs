@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     private Rigidbody rigid;
     public Camera myCamera;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public int playerPos;   // 플레이어가 위치하는 방 번호
 
-    GameObject _doorInfoPanel;
+    public GameObject _doorInfoPanel;
 
     private DoorMove touchDoor = null;
     private bool istouchDoor = false;
@@ -34,16 +36,16 @@ public class PlayerController : MonoBehaviour
     public AudioClip startClip;
     public AudioClip walkClip;
     public AudioClip jumpClip;
-    
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
-        Cursor.visible = false;
+    //    Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서 고정
+    //    Cursor.visible = false;
 
         rigid = GetComponent<Rigidbody>();
         _stageInfo = FindObjectOfType<StageInfo>();
         _canvasManager = FindObjectOfType<CanvasManager>();
-        _doorInfoPanel = FindObjectOfType<GameManager>()._doorInfoImage;
+        //_doorInfoPanel = FindObjectOfType<CanvasManager>()._doorInfoImage;
         playerAnim = GetComponent<Animator>();
         playerAudioSource = GetComponent<AudioSource>();
         playerAnim.Play("Idle");
@@ -59,21 +61,24 @@ public class PlayerController : MonoBehaviour
     {
         if (!isEnd)
         {
-            // 플레이어 이동
-            Move();
-            Jump();
-
-            if (!isMapActive)
+            if (photonView.IsMine)
             {
-                // 플레이어-카메라 회전
-                CameraRotation();
-                CharacterRotation();
+                // 플레이어 이동
+                Move();
+                Jump();
 
-                // 마우스 클릭 이벤트(문열기/플래그)
-                MouseClick();
+                if (!isMapActive)
+                {
+                    // 플레이어-카메라 회전
+                    CameraRotation();
+                    CharacterRotation();
+
+                    // 마우스 클릭 이벤트(문열기/플래그)
+                    MouseClick();
+                }
+                // 미니맵 열기
+                OpenMap();
             }
-            // 미니맵 열기
-            OpenMap();
         }
     }
 
@@ -143,7 +148,7 @@ public class PlayerController : MonoBehaviour
         {
             istouchDoor = true;
             touchDoor = other.gameObject.GetComponent<DoorMove>();
-            _doorInfoPanel.SetActive(true);
+            //_doorInfoPanel.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -152,7 +157,7 @@ public class PlayerController : MonoBehaviour
         {
             istouchDoor = false;
             touchDoor = null;
-            _doorInfoPanel.SetActive(false);
+            //_doorInfoPanel.SetActive(false);
         }
     }
 
@@ -161,7 +166,7 @@ public class PlayerController : MonoBehaviour
         // 문열기 - 왼쪽
         if (Input.GetMouseButtonDown(0) && istouchDoor && touchDoor)
         {
-            _doorInfoPanel.SetActive(false);
+            //_doorInfoPanel.SetActive(false);
             int behindRoomNum;
             touchDoor.DoorOpen();
             
@@ -178,7 +183,7 @@ public class PlayerController : MonoBehaviour
         // 플래그 표시 - 오른쪽
         else if (Input.GetMouseButtonDown(1) && istouchDoor && touchDoor)
         {
-            _doorInfoPanel.SetActive(false);
+            //_doorInfoPanel.SetActive(false);
             int behindRoomNum;
             if (touchDoor.roomNum1 == playerPos)
                 behindRoomNum = touchDoor.roomNum2;

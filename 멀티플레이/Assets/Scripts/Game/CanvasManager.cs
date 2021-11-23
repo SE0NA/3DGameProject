@@ -15,6 +15,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] MapManager[] minimapUIList = null;
     MapManager minimapUI = null;
 
+    public GameObject _doorInfoImage;
+
     private float sec = 0f;
     private int min = 0;
 
@@ -37,6 +39,7 @@ public class CanvasManager : MonoBehaviour
                 minimapUI = minimapUIList[2];
                 break;
         }
+        _doorInfoImage.SetActive(false);
     }
 
     private void Update()

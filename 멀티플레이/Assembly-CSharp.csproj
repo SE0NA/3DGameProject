@@ -322,6 +322,12 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0f2/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -330,12 +336,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/USER/Desktop/대학/3학년 2학기/AI게임프로그래밍/project/3DGameProject/멀티플레이/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.0f2/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

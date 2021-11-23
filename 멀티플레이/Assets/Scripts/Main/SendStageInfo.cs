@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SendStageInfo : MonoBehaviour
 {
-    public StageLevel selectStage = StageLevel.stage5x5;    // 테스트
+    public StageLevel selectStage = StageLevel.stage5x5;
 
     void Start()
     {

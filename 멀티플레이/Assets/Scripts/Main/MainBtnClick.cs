@@ -19,13 +19,11 @@ public class MainBtnClick : MonoBehaviour
     public GameObject mainMenuPanel1 = null;
     public GameObject mainMenuPanel2 = null;
     public GameObject optionPanel = null;
-    public GameObject multiPanel;
 
     void Start()
     {
         mainMenuPanel2.SetActive(false);
         optionPanel.SetActive(false);
-        multiPanel.SetActive(false);
     }
     
     public void OnClickFunc(int input)
@@ -41,10 +39,7 @@ public class MainBtnClick : MonoBehaviour
                 break;
 
             case MainMenuBtn.multi:
-                titleText.SetActive(false);
-                mainMenuPanel1.SetActive(false);
-                mainMenuPanel2.SetActive(false);
-                multiPanel.SetActive(true);
+                SceneManager.LoadScene("Lobby");
                 break;
 
             case MainMenuBtn.option:
@@ -82,7 +77,6 @@ public class MainBtnClick : MonoBehaviour
             case MainMenuBtn.back:
                 mainMenuPanel1.SetActive(true);
                 mainMenuPanel2.SetActive(false);
-                multiPanel.SetActive(false);
                 break;
         }
     }

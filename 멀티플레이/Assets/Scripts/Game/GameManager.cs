@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,50 +14,23 @@ public class GameManager : MonoBehaviour
     StageInfo _stageInfo;
     Vector3 startPosition;
 
-    public GameObject _doorInfoImage;
-
     private void Awake()
     {
         SendStageInfo _sendStageInfo = FindObjectOfType<SendStageInfo>();
         currentStageLevel = _sendStageInfo.selectStage;
 
-        // 스테이지 생성
-        GameObject gameStage = null;
-
-        switch (currentStageLevel)
-        {
-            case StageLevel.stage5x5:
-                gameStage = Instantiate(stagePrefabs[0]);
-                gameStage.transform.position = new Vector3(0, 0, 0);
-                startPosition = new Vector3(20.0f, 0.5f, -20.0f);
-                break;
-
-            case StageLevel.stage7x7:
-                gameStage = Instantiate(stagePrefabs[1]);
-                gameStage.transform.position = new Vector3(0, 0, 0);
-                startPosition = new Vector3(33.0f, 0.5f, -33.0f);
-                break;
-
-            case StageLevel.stage9x9:
-                gameStage = Instantiate(stagePrefabs[2]);
-                gameStage.transform.position = new Vector3(0, 0, 0);
-                startPosition = new Vector3(46.0f, 0.5f, -46.0f);
-                break;
-        }
+        _stageInfo = FindObjectOfType<StageInfo>();
 
         // 캐릭터 생성
         GameObject player = null;
-        if(gameStage != null)   // 스테이지 생성시 실행
-        {
-            player = Instantiate(playerPrefab);
-            player.transform.position = startPosition;
-        }
-
-        _stageInfo = FindObjectOfType<StageInfo>();
-        _doorInfoImage.SetActive(false);
+        player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+        //   player = Instantiate(playerPrefab);
+        player.transform.position = _stageInfo.roomList[_stageInfo.startRoomNum-1].roomPos.position;
+        
         SetBombInRoom();    // 폭탄 설치
     }
 
+    [PunRPC]
     void SetBombInRoom()
     {
         int currentBombCnt = 0;                 // 설치된 폭탄수

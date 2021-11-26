@@ -12,6 +12,9 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject clearPanel = null;
     [SerializeField] Text clearText = null;
 
+    [SerializeField] InputField rankName = null;
+    [SerializeField] Button insertBtn = null;
+
     [SerializeField] MapManager[] minimapUIList = null;
     MapManager minimapUI = null;
 
@@ -134,6 +137,42 @@ public class CanvasManager : MonoBehaviour
         else
         {
             clearText.text = "Best Score: " + string.Format("{0:D2}:{1:D2}", best / 60, best % 60);
+        }
+    }
+
+    public void RankInBtnClick()
+    {
+        string inputname = rankName.text;
+
+        if (inputname.Equals(""))
+        {
+            return;
+        }
+        else
+        {
+            string inputrecord = string.Format("{0}:{1:D2}:{2}", min / 60, min % 60, sec);
+            string address = "http://127.0.0.1/TheDoorRankInsert.php";
+            StageLevel stage = FindObjectOfType<StageInfo>().currentStage;
+
+            WWWForm Form = new WWWForm();
+            Form.AddField("Name", inputname);
+            Form.AddField("Record", inputrecord);
+            switch (stage)
+            {
+                case StageLevel.stage5x5:
+                    Form.AddField("Stage", 5);
+                    break;
+                case StageLevel.stage7x7:
+                    Form.AddField("Stage", 7);
+                    break;
+                case StageLevel.stage9x9:
+                    Form.AddField("Stage", 9);
+                    break;
+            }
+
+            WWW wwwURL = new WWW(address, Form);
+
+            insertBtn.enabled = false;
         }
     }
 }

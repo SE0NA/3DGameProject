@@ -171,8 +171,6 @@ public class PlayerController : MonoBehaviour
                 behindRoomNum = touchDoor.roomNum1;
 
             PlayerOpenDoor(behindRoomNum - 1, _stageInfo.roomList[behindRoomNum-1].isOpened);
-            if (_stageInfo.CheckAllRoom())
-                Clear();
         }
 
         // 플래그 표시 - 오른쪽
@@ -191,6 +189,8 @@ public class PlayerController : MonoBehaviour
                 _stageInfo.roomList[behindRoomNum - 1].Flag();
             }
         }
+        if (_stageInfo.CheckAllRoom())
+            Clear();
     }
     public void PlayerOpenDoor(int roomIndex, bool behindStateisOpen)
     {

@@ -19,13 +19,13 @@ public class MainBtnClick : MonoBehaviour
     public GameObject mainMenuPanel1 = null;
     public GameObject mainMenuPanel2 = null;
     public GameObject optionPanel = null;
-    
+
     void Start()
     {
         mainMenuPanel2.SetActive(false);
         optionPanel.SetActive(false);
     }
-    
+
     public void OnClickFunc(int input)
     {
         MainMenuBtn current = (MainMenuBtn)input;
@@ -37,7 +37,7 @@ public class MainBtnClick : MonoBehaviour
                 mainMenuPanel1.SetActive(false);
                 mainMenuPanel2.SetActive(true);
                 break;
-
+                
             case MainMenuBtn.option:
                 titleText.SetActive(false);
                 mainMenuPanel1.SetActive(false);

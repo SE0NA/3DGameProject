@@ -19,7 +19,6 @@ public class OptionManager : MonoBehaviour
     public void Start()
     {
         deletePanel.SetActive(false);
-
         masterSlider.value = PlayerPrefs.GetFloat("masterAudioMixer");
         bgmSlider.value = PlayerPrefs.GetFloat("bgmAudioMixer");
         sfxSlider.value = PlayerPrefs.GetFloat("sfxAudioMixer");
@@ -56,6 +55,9 @@ public class OptionManager : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
+        string address = "http://127.0.0.1/TheDoorRankDelete.php";
+        WWW wwwURL = new WWW(address);
+        
         optionPanel.SetActive(false);
         deletePanel.SetActive(true);
         Invoke("FinishResetData", 2f);

@@ -56,3 +56,12 @@
 <li> <a href="https://github.com/SE0NA/3DGameProject/blob/main/TheDoor/Assets/Scripts/Game/StageInfo.cs">StageInfo.cs</a></li>
 <li> <a href="https://github.com/SE0NA/3DGameProject/blob/main/TheDoor/Assets/Scripts/Game/RoomInfo.cs">RoomInfo.cs</a></li>
 </ui>
+
+***
+#### 사용 에셋
+<h6><table>
+<tr><td>플레이어 오브젝트</td><td>Robot Solider - Marcelo Barrio</td></tr>
+<tr><td>스테이지 구성</td><td>3D Free Modular Kit – Barking Dog</td></tr>
+<tr><td>음향 효과</td><td><p>Ash Valley Cybernetics LITE – Neal Bond <br>8 Bits Elements – Game Sound Solutions</p></td></tr>
+<tr><td>애니메이션</td><td><p>Melee Warrior Animations FREE – Kevin Iglesias <br>Standard Assets(for Unity 2018.4) - Unity Technologies</p></td></tr>
+</table></h6>
